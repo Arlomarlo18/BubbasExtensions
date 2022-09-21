@@ -10,7 +10,7 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 extension View {
-    func printInView(_ vars: Any...) -> some View {
+   public func printInView(_ vars: Any...) -> some View {
         for v in vars { print(v) }
         return EmptyView()
     }
