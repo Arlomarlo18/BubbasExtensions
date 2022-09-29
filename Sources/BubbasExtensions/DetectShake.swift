@@ -21,7 +21,7 @@ extension UIWindow {
 
 @available(iOS 13.0, *)
 extension View {
-    func onShake(perform action: @escaping () -> Void) -> some View {
+    public func onShake(perform action: @escaping () -> Void) -> some View {
         self.modifier(ShakeDetector(onShake: action))
     }
 }
@@ -29,7 +29,7 @@ extension View {
 @available(iOS 13.0, *)
 struct ShakeDetector: ViewModifier {
     let onShake: () -> Void
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .onAppear() // this has to be here because of a SwiftUI bug
             .onReceive(NotificationCenter.default.publisher(for:
