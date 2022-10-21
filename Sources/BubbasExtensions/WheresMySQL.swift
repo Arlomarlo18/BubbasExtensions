@@ -8,7 +8,7 @@
 import Foundation
 
 @available(iOS 13.0, *)
-class DatabaseUtils {
+public class DatabaseUtils {
     public static func whereIsMySQLite() {
         let path = FileManager
             .default
