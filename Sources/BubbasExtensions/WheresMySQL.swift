@@ -8,6 +8,8 @@
 import Foundation
 
 @available(iOS 13.0, *)
+
+/// This class lets me find my path to where my SQLite file is located so I can put it in the DBBrowser
 public class DatabaseUtils {
     public static func whereIsMySQLite() {
         let path = FileManager
