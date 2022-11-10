@@ -10,6 +10,12 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 extension Collection where Element: Identifiable {
+    
+    /// Gets the indices of all items matching the given item.
+        ///
+        /// - Returns: An `Array` of matching items.
+        ///
+        /// - Version: 1.0
     public func index(matching element: Element) -> Self.Index? {
         firstIndex(where: { $0.id == element.id })
     }
@@ -17,6 +23,12 @@ extension Collection where Element: Identifiable {
 
 @available(iOS 13.0, *)
 extension RangeReplaceableCollection where Element: Identifiable {
+    
+    
+    /// Removes the given item from this `Array`
+    ///
+    /// - Version: 1.0
+    
     mutating func remove(_ element: Element) {
         if let index = index(matching: element) {
             remove(at: index)

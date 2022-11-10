@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13.0, *)
+/// Extends Text so that it can take a INT, DOUBLE, AND CGFLOAT
 extension Text {
     public init(_ int: Int) {
         self.init("\(int)")

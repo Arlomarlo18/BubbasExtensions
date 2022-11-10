@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 
+/// Extends NSNotification.name to add a notification for shaking your device
 extension NSNotification.Name {
     public static let deviceDidShakeNotification =   NSNotification.Name("MyDeviceDidShakeNotification")
 }
 
+//// Extends UIWindow so you know know the shaking stopped and you can run code
 extension UIWindow {
     open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         super.motionEnded(motion, with: event)
@@ -19,6 +21,7 @@ extension UIWindow {
     }
 }
 
+/// Extends View so you can  call code when the UIWindow realizes the shaking has stopped
 @available(iOS 13.0, *)
 extension View {
     public func onShake(perform action: @escaping () -> Void) -> some View {
@@ -27,6 +30,8 @@ extension View {
 }
 
 @available(iOS 13.0, *)
+
+/// ShakeDetector is a modifier on View so you can call this on any View with an action at the end
 struct ShakeDetector: ViewModifier {
     let onShake: () -> Void
     public func body(content: Content) -> some View {
