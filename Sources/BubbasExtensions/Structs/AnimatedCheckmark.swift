@@ -16,14 +16,20 @@ public struct AnimatedCheckmark: View {
     ///Checkmark color
     var size: Int 
     
-    public var height: CGFloat {
+    var height: CGFloat {
         return CGFloat(size)
     }
-    public var width: CGFloat {
+    var width: CGFloat {
         return CGFloat(size)
     }
     
     @State private var percentage: CGFloat = .zero
+    
+    public init(color: Color, size: Int, percentage: CGFloat) {
+        self.color = color
+        self.size = size
+        self.percentage = percentage
+    }
     
     public var body: some View {
         Path { path in
