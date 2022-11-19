@@ -9,8 +9,7 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13.0, *)
-
-struct Star: Shape {
+public struct Star: Shape {
     
     // store how many corners the star has, and how smooth/pointed it is
     let corners: Int
