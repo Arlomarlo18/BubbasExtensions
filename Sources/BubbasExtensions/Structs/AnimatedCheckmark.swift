@@ -23,7 +23,7 @@ public struct AnimatedCheckmark: View {
         return CGFloat(size)
     }
     
-    @State private var percentage: CGFloat = .zero
+    @State var percentage: CGFloat = .zero
     
     public var body: some View {
         Path { path in
