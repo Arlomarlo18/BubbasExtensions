@@ -15,6 +15,11 @@ public struct Star: Shape {
     let corners: Int
     let smoothness: CGFloat
     
+    public init(corners: Int, smoothness: CGFloat) {
+        self.corners = corners
+        self.smoothness = smoothness
+    }
+    
     public func path(in rect: CGRect) -> Path {
         // ensure we have at least two corners, otherwise send back an empty path
         guard corners >= 2 else { return Path() }
