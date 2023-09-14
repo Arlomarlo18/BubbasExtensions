@@ -9,6 +9,9 @@ import Foundation
 
 @available(iOS 15.0, *)
 public struct NetworkManager {
+    
+    public init() {}
+    
    public func fetch<T: Codable>(from urlString: String, results: inout T) async throws {
         
         guard let url = URL(string: urlString) else {
