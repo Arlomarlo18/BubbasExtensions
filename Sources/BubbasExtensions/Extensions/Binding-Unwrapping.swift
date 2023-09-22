@@ -17,7 +17,18 @@ import SwiftUI
 ///
 /// Returns the Binding<T>
 extension Binding {
-     public func toUnwrapped<T>(defaultValue: T) -> Binding<T> where Value == Optional<T>  {
+    
+    /// This function extends Binding Optionals to help unwrapping them.
+    ///
+    /// This is a generic function that can be used on any custom, basic, or complex type.
+    ///
+    /// ```
+    /// $collection.name.toUnwrapped(defaultValue: "Error")
+    /// ```
+    /// - Warning: You should not have Binding Optionals. For the rare case you do this makes life easier.
+    /// - Parameter defaultValue: This is when the Binding Optional is nil.
+    /// - Returns: This will return either the wrapped value or the default value.
+    public func toUnwrapped<T>(defaultValue: T) -> Binding<T> where Value == Optional<T>  {
         Binding<T>(get: { self.wrappedValue ?? defaultValue }, set: { self.wrappedValue = $0 })
     }
 }
