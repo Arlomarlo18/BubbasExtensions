@@ -10,21 +10,31 @@ import Combine
 
 @available(iOS 13.0, *)
 public struct AnimatedCheckmark: View {
-    //Checkmark color
+    /// The color of the checkmark
     var color: Color
     
-    ///Checkmark color
-    var size: Int 
+    /// The size of the check mark
+    var size: Int
     
+    /// The height of the box around the checkmark
     var height: CGFloat {
         return CGFloat(size)
     }
+    
+    /// The width of the box around the checkmark
     var width: CGFloat {
         return CGFloat(size)
     }
     
     @State private var percentage: CGFloat = .zero
     
+    /// To make a animated checkmark
+    ///
+    /// This will make a custom animated checkmark that you can customize the color size and percentage
+    ///
+    /// - Parameter color: The color of the checkmark.
+    /// - Parameter size: The size of the checkmark.
+    /// - Parameter percentage: ????
     public init(color: Color, size: Int, percentage: CGFloat) {
         self.color = color
         self.size = size
