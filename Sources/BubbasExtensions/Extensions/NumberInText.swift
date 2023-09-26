@@ -11,7 +11,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 extension Text {
     
-    /// Extends Text so that It can accept a Int as a parameter
+    /// Extends Text so that It can accept a Int as a parameter.
     /// ```
     /// Text(12)
     /// ```
