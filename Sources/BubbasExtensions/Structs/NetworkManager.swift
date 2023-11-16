@@ -58,9 +58,3 @@ public struct NetworkManager {
     }
 }
 
-enum BadUrlError: Error {
-    case requestFailed(reason: String)
-    case invalidResponse
-    case decodingFailed
-}
-

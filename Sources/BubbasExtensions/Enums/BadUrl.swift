@@ -6,3 +6,8 @@
 //
 
 import Foundation
+public enum BadUrlError: Error {
+    case requestFailed(reason: String)
+    case invalidResponse
+    case decodingFailed
+}
