@@ -22,7 +22,7 @@ public struct NetworkManager {
     ///
     /// - Parameter urlString: A URL String going to a JSON file on the internet.
     /// - Parameter results: The variable that you want to store your results in.
-    public func fetch<T: Codable>(from urlString: String, results: inout T) async throws {
+    public func fetch<T : Codable>(from urlString: String, results: inout T) async throws {
         
         guard let url = URL(string: urlString) else {
             throw URLError(.badURL)
@@ -34,5 +34,33 @@ public struct NetworkManager {
         let result = try JSONDecoder().decode(T.self, from: data)
         results = result
     }
+    
+    public func fetch<T : Codable>(from urlString: String, apiKey: String, keyHeader: String, httpMethod: String, results: inout T) async throws {
+        guard let url = URL(string: urlString) else {
+            throw BadUrlError.requestFailed(reason: "The Url \(urlString) failed.")
+        }
+        
+        var request = URLRequest(url: url)
+        request.addValue(apiKey, forHTTPHeaderField: keyHeader)
+        request.httpMethod = httpMethod
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+                throw BadUrlError.invalidResponse
+            }
+            
+            let result = try JSONDecoder().decode(T.self, from: data)
+            results = result
+        } catch {
+            print("Error with Network Call: \(error)")
+        }
+    }
+}
+
+enum BadUrlError: Error {
+    case requestFailed(reason: String)
+    case invalidResponse
+    case decodingFailed
 }
 
