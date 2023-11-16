@@ -45,10 +45,10 @@ public struct NetworkManager {
         request.httpMethod = httpMethod
         
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-//            guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-//                throw BadUrlError.invalidResponse
-//            }
+            let (data, response) = try await URLSession.shared.data(for: request)
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+                throw BadUrlError.invalidResponse
+            }
             
             let result = try JSONDecoder().decode(T.self, from: data)
             results = result
