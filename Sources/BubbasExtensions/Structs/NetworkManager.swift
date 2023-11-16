@@ -35,7 +35,7 @@ public struct NetworkManager {
         results = result
     }
     
-    public func fetch<T : Codable>(from urlString: String, apiKey: String, keyHeader: String, httpMethod: String, results: inout T) async throws {
+    public func fetch<T : Codable>(from urlString: String, apiKey: String, keyHeader: String, httpMethod: String = "GET", results: inout T) async throws {
         guard let url = URL(string: urlString) else {
             throw BadUrlError.requestFailed(reason: "The Url \(urlString) failed.")
         }
