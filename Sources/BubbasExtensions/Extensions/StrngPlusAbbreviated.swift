@@ -20,7 +20,7 @@ extension String {
     ///  - Returns: An Abbreviated Code.
     public func abbreviate() -> String {
         let words = self.components(separatedBy: " ")
-        let capitalizedWords = words.map { $0.capitalized }
-        return capitalizedWords.joined(separator: " ")
+        let abbreviatedWords = words.map { $0.prefix(1).capitalized }
+        return abbreviatedWords.joined()
     }
 }
