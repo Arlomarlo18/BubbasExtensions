@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@available(macOS 10.15, *)
 @available(iOS 13.0, *)
 extension Collection where Element: Identifiable {
     
@@ -21,6 +22,7 @@ extension Collection where Element: Identifiable {
     }
 }
 
+@available(macOS 10.15, *)
 @available(iOS 13.0, *)
 extension RangeReplaceableCollection where Element: Identifiable {
     

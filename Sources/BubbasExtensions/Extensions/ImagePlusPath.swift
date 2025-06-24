@@ -1,6 +1,6 @@
 //
 //  ImagePlusPath.swift
-//  
+//
 //
 //  Created by Bubba Hall on 7/30/23.
 //
@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 
+#if canImport(UIKit)
+import UIKit
+
+@available(macOS 10.15, *)
 @available(iOS 13.0, *)
 extension Image {
     /// This gets the path to a image in the file manager
@@ -30,3 +34,4 @@ extension Image {
         }
     }
 }
+#endif

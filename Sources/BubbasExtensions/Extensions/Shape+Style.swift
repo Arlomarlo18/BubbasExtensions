@@ -8,9 +8,8 @@
 import Foundation
 import SwiftUI
 
+@available(macOS 10.15, *)
 @available(iOS 13.0, *)
-
-
 extension Shape {
     /// This Extends Shape so you can do a fill and a stroke on the same shape
     ///

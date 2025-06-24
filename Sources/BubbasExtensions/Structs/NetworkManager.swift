@@ -22,6 +22,7 @@ public struct NetworkManager {
     ///
     /// - Parameter urlString: A URL String going to a JSON file on the internet.
     /// - Parameter results: The variable that you want to store your results in.
+    @available(macOS 12.0, *)
     public func fetch<T : Codable>(from urlString: String, results: inout T) async throws {
         
         guard let url = URL(string: urlString) else {
@@ -35,6 +36,7 @@ public struct NetworkManager {
         results = result
     }
     
+    @available(macOS 12.0, *)
     public func fetch<T : Codable>(from urlString: String, apiKey: String, keyHeader: String, httpMethod: String = "GET", results: inout T) async throws {
         guard let url = URL(string: urlString) else {
             throw BadUrlError.requestFailed(reason: "The Url \(urlString) failed.")

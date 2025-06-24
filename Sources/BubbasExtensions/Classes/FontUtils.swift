@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+#if canImport(UIKit)
+import UIKit
+
 public class FontUtils {
     /// This static function will print all of the fonts that your project has access to.
     ///
@@ -25,3 +28,4 @@ public class FontUtils {
         }
     }
 }
+#endif

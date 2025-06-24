@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@available(macOS 10.15, *)
 @available(iOS 13.0, *)
 // this shape lets you round any corner however you want
 public struct RoundedCornersShape: Shape {
